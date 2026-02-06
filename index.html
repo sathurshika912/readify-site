@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readify - Your Book Companion</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">📚 Readify</a>
+                
+                <!-- Hamburger Menu -->
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <!-- Navigation Links -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="explorer.html">Book Explorer</a></li>
+                    <li><a href="tracker.html">Reading Tracker</a></li>
+                    <li><a href="recommender.html">Recommender</a></li>
+                    <li><a href="flow.html">Reading Flow</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section with Rotating Quotes -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="quote-section">
+                    <h1>Discover Your Next Great Read</h1>
+                    <blockquote id="rotatingQuote">
+                        <p class="quote-text">"A reader lives a thousand lives before he dies."</p>
+                        <cite class="quote-author">- George R.R. Martin</cite>
+                    </blockquote>
+                </div>
+                <div class="hero-image">
+                    <div class="image-placeholder">📖</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Author of the Day -->
+        <section class="author-section">
+            <div class="container">
+                <h2>✨ Author of the Day</h2>
+                <div class="author-card" id="authorCard">
+                    <div class="author-image">
+                        <div class="image-placeholder">👤</div>
+                    </div>
+                    <div class="author-info">
+                        <h3 id="authorName">Loading...</h3>
+                        <p id="authorBio">Discovering today's featured author...</p>
+                        <p class="author-note">Author changes daily!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="features">
+            <div class="container">
+                <h2>Explore Readify</h2>
+                <div class="feature-grid">
+                    <a href="explorer.html" class="feature-card">
+                        <div class="icon">🔍</div>
+                        <h3>Book Explorer</h3>
+                        <p>Search and discover books</p>
+                    </a>
+                    <a href="tracker.html" class="feature-card">
+                        <div class="icon">📊</div>
+                        <h3>Reading Tracker</h3>
+                        <p>Track your progress</p>
+                    </a>
+                    <a href="recommender.html" class="feature-card">
+                        <div class="icon">🎲</div>
+                        <h3>Recommender</h3>
+                        <p>Get random book suggestions</p>
+                    </a>
+                    <a href="flow.html" class="feature-card">
+                        <div class="icon">🎵</div>
+                        <h3>Reading Flow</h3>
+                        <p>Cozy sounds & tracking</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📚 Readify</h3>
+                    <p>Your companion for reading adventures</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="explorer.html">Book Explorer</a></li>
+                        <li><a href="tracker.html">Reading Tracker</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <form id="newsletterForm">
+                        <input type="email" id="newsletterEmail" placeholder="Your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <p id="newsletterMessage"></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Readify. By Sathu Mani.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+

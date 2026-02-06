@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Explorer - Readify</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">📚 Readify</a>
+                
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="explorer.html" class="active">Book Explorer</a></li>
+                    <li><a href="tracker.html">Reading Tracker</a></li>
+                    <li><a href="recommender.html">Recommender</a></li>
+                    <li><a href="flow.html">Reading Flow</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>📖 Explore Our Book Collection</h1>
+                <p>Discover your next favorite book from our curated collection</p>
+            </div>
+        </section>
+
+        <!-- Search and Filter Section -->
+        <section class="search-section">
+            <div class="container">
+                <div class="search-controls">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search by title or author..." 
+                        class="search-input"
+                    >
+                    
+                    <select id="genreFilter" class="filter-select">
+                        <option value="">All Genres</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="historical">Historical</option>
+                        <option value="dystopian">Dystopian</option>
+                        <option value="romance">Romance</option>
+                        <option value="sci-fi">Sci-Fi</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="magical-realism">Magical Realism</option>
+                    </select>
+                    
+                    <button id="searchBtn" class="search-btn">🔍 Search</button>
+                    <button id="resetBtn" class="reset-btn">Reset</button>
+                </div>
+                
+                <div id="resultsCount" class="results-count"></div>
+            </div>
+        </section>
+
+        <!-- Books Grid -->
+        <section class="books-section">
+            <div class="container">
+                <div id="booksGrid" class="books-grid">
+                    <!-- Books will be loaded here by JavaScript -->
+                </div>
+                
+                <div id="noResults" class="no-results" style="display: none;">
+                    <p>📚 No books found. Try a different search!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<!-- Book Modal -->
+<div id="bookModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        
+        <div class="modal-body">
+            <div class="modal-image">
+                <div id="modalBookCover"></div>
+            </div>
+            
+            <div class="modal-details">
+                <h2 id="modalTitle">Book Title</h2>
+                <p class="modal-author">by <span id="modalAuthor">Author Name</span></p>
+                
+                <div class="modal-meta">
+                    <span class="meta-item">📚 <span id="modalGenre">Genre</span></span>
+                    <span class="meta-item">📄 <span id="modalPages">Pages</span> pages</span>
+                    <span class="meta-item">⭐ <span id="modalRating">Rating</span></span>
+                </div>
+                
+                <div class="modal-synopsis">
+                    <h3>Synopsis</h3>
+                    <p id="modalSynopsis">Book synopsis goes here...</p>
+                </div>
+                
+                <div id="modalSequels" class="modal-sequels" style="display: none;">
+                    <h3>📚 Sequels</h3>
+                    <ul id="sequelsList"></ul>
+                </div>
+                
+                <div id="modalPrequels" class="modal-prequels" style="display: none;">
+                    <h3>📖 Prequels</h3>
+                    <ul id="prequelsList"></ul>
+                </div>
+                
+                <div class="modal-reviews">
+                    <h3>⭐ Reviews</h3>
+                    <table id="reviewsTable" class="reviews-table">
+                        <thead>
+                            <tr>
+                                <th>Reviewer</th>
+                                <th>Rating</th>
+                                <th>Comment</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reviewsBody">
+                            <!-- Reviews will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Readify. Sathu Mani.</p>
+        </div>
+    </footer>
+
+    <script src="js/books-data.js"></script>
+    <script src="js/explorer.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

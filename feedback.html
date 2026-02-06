@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Readify</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">📚 Readify</a>
+                
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="explorer.html">Book Explorer</a></li>
+                    <li><a href="tracker.html">Reading Tracker</a></li>
+                    <li><a href="recommender.html">Recommender</a></li>
+                    <li><a href="flow.html">Reading Flow</a></li>
+                    <li><a href="feedback.html" class="active">Feedback</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>💬 We'd Love to Hear From You!</h1>
+                <p>Share your thoughts, suggestions, or questions</p>
+            </div>
+        </section>
+
+        <!-- Feedback Section -->
+        <section class="feedback-section">
+            <div class="container">
+                <div class="feedback-container">
+                    
+                    <!-- Feedback Form -->
+                    <div class="feedback-form-card">
+                        <h2>📝 Send Us Your Feedback</h2>
+                        
+                        <form id="feedbackForm" class="feedback-form">
+                            <div class="form-group">
+                                <label for="feedbackName">Your Name *</label>
+                                <input 
+                                    type="text" 
+                                    id="feedbackName" 
+                                    placeholder="John Doe"
+                                    required
+                                    minlength="2"
+                                    class="form-input"
+                                >
+                                <span class="error-message" id="nameError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="feedbackEmail">Your Email *</label>
+                                <input 
+                                    type="email" 
+                                    id="feedbackEmail" 
+                                    placeholder="john@example.com"
+                                    required
+                                    class="form-input"
+                                >
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="feedbackCategory">Category</label>
+                                <select id="feedbackCategory" class="form-input">
+                                    <option value="general">General Feedback</option>
+                                    <option value="bug">Bug Report</option>
+                                    <option value="feature">Feature Request</option>
+                                    <option value="question">Question</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="feedbackMessage">Your Message *</label>
+                                <textarea 
+                                    id="feedbackMessage" 
+                                    rows="6"
+                                    placeholder="Tell us what you think..."
+                                    required
+                                    minlength="10"
+                                    class="form-input form-textarea"
+                                ></textarea>
+                                <span class="error-message" id="messageError"></span>
+                                <span class="char-count"><span id="charCount">0</span> / 500 characters</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="subscribeNewsletter">
+                                    <span>Subscribe to our newsletter for book recommendations</span>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn-submit-feedback">
+                                ✉️ Submit Feedback
+                            </button>
+                        </form>
+
+                        <div id="feedbackMessage" class="feedback-message"></div>
+                    </div>
+
+                    <!-- FAQ Section -->
+                    <div class="faq-card">
+                        <h2>❓ Frequently Asked Questions</h2>
+                        <p class="faq-subtitle">Quick answers to common questions</p>
+                        
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    How do I track my reading progress?
+                                    <span class="faq-icon">+</span>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>Visit the "Reading Tracker" page, enter your book's total pages, pages read, and daily reading speed. The tracker will calculate your progress percentage and estimated finish date!</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    Can I save my favorite books?
+                                    <span class="faq-icon">+</span>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>Yes! Use the Random Recommender page to discover books and add them to your personal reading list. All your saved books are stored locally on your device.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    How do the ambient sounds work?
+                                    <span class="faq-icon">+</span>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>On the Reading Flow page, you can play relaxing background sounds like rain, fireplace, or coffee shop ambience. Adjust the volume for each sound and play multiple at once to create your perfect reading atmosphere!</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    Is my data stored online?
+                                    <span class="faq-icon">+</span>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>No, all your data (reading progress, saved books, completed books) is stored locally in your browser using localStorage. Your data stays private and on your device.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    Can I use Readify offline?
+                                    <span class="faq-icon">+</span>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>Yes! Readify is a Progressive Web App (PWA), which means you can install it on your device and use many features offline once loaded.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    How do I search for specific books?
+                                    <span class="faq-icon">+</span>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>Go to the Book Explorer page and use the search bar to find books by title or author. You can also filter by genre to narrow down your search!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Submitted Feedback Display -->
+                <div class="submitted-feedback-section" id="submittedFeedbackSection" style="display: none;">
+                    <h2>📬 Recent Feedback</h2>
+                    <p class="section-subtitle">Your feedback helps us improve Readify</p>
+                    
+                    <div id="submittedFeedbackList" class="submitted-feedback-list">
+                        <!-- Submitted feedback will appear here -->
+                    </div>
+
+                    <button id="clearFeedbackBtn" class="btn-clear-feedback">Clear All Feedback</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📚 Readify</h3>
+                    <p>Your companion for reading adventures</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="explorer.html">Book Explorer</a></li>
+                        <li><a href="tracker.html">Reading Tracker</a></li>
+                        <li><a href="recommender.html">Recommender</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: support@readify.com</p>
+                    <p>Made with ❤️ for book lovers</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Readify. By Sathu Mani.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/books-data.js"></script>
+    <script src="js/feedback.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

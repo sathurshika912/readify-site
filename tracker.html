@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Tracker - Readify</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">📚 Readify</a>
+                
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="explorer.html">Book Explorer</a></li>
+                    <li><a href="tracker.html" class="active">Reading Tracker</a></li>
+                    <li><a href="recommender.html">Recommender</a></li>
+                    <li><a href="flow.html">Reading Flow</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>📊 Track Your Reading Progress</h1>
+                <p>See how far you've come and when you'll finish your book</p>
+            </div>
+        </section>
+
+        <!-- Tracker Section -->
+        <section class="tracker-section">
+            <div class="container">
+                <div class="tracker-container">
+                    <!-- Input Form -->
+                    <div class="tracker-input">
+                        <h2>📖 Enter Your Reading Details</h2>
+                        
+                        <form id="trackerForm">
+                            <div class="form-group">
+                                <label for="bookTitle">Book Title (Optional)</label>
+                                <input 
+                                    type="text" 
+                                    id="bookTitle" 
+                                    placeholder="What are you reading?"
+                                    class="form-input"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="totalPages">Total Pages *</label>
+                                <input 
+                                    type="number" 
+                                    id="totalPages" 
+                                    placeholder="e.g., 350"
+                                    min="1"
+                                    required
+                                    class="form-input"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pagesRead">Pages Read *</label>
+                                <input 
+                                    type="number" 
+                                    id="pagesRead" 
+                                    placeholder="e.g., 120"
+                                    min="0"
+                                    required
+                                    class="form-input"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="readingSpeed">Daily Reading Speed (pages/day) *</label>
+                                <input 
+                                    type="number" 
+                                    id="readingSpeed" 
+                                    placeholder="e.g., 50"
+                                    min="1"
+                                    required
+                                    class="form-input"
+                                >
+                            </div>
+
+                            <div class="form-buttons">
+                                <button type="submit" class="btn-primary">Calculate Progress</button>
+                                <button type="button" id="saveProgress" class="btn-secondary">Save Progress</button>
+                                <button type="button" id="loadProgress" class="btn-secondary">Load Saved</button>
+                                <button type="button" id="clearForm" class="btn-clear">Clear</button>
+                            </div>
+                        </form>
+
+                        <div id="formMessage" class="form-message"></div>
+                    </div>
+
+                    <!-- Results Display -->
+                    <div class="tracker-results" id="trackerResults" style="display: none;">
+                        <h2>📈 Your Progress</h2>
+                        
+                        <div class="result-card">
+                            <div class="result-header">
+                                <h3 id="resultBookTitle">Book Title</h3>
+                            </div>
+
+                            <!-- Progress Bar -->
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-bar-fill" id="progressBarFill"></div>
+                                </div>
+                                <div class="progress-percentage" id="progressPercentage">0%</div>
+                            </div>
+
+                            <!-- Stats Grid -->
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-icon">📖</div>
+                                    <div class="stat-value" id="statPagesRead">0</div>
+                                    <div class="stat-label">Pages Read</div>
+                                </div>
+
+                                <div class="stat-card">
+                                    <div class="stat-icon">📚</div>
+                                    <div class="stat-value" id="statPagesLeft">0</div>
+                                    <div class="stat-label">Pages Left</div>
+                                </div>
+
+                                <div class="stat-card">
+                                    <div class="stat-icon">⏱️</div>
+                                    <div class="stat-value" id="statDaysLeft">0</div>
+                                    <div class="stat-label">Days to Finish</div>
+                                </div>
+
+                                <div class="stat-card">
+                                    <div class="stat-icon">📅</div>
+                                    <div class="stat-value" id="statFinishDate">-</div>
+                                    <div class="stat-label">Estimated Finish</div>
+                                </div>
+                            </div>
+
+                            <!-- Additional Info -->
+                            <div class="additional-info">
+                                <p>💪 Keep reading! You're <span id="motivationText">making progress</span>!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saved Progress History -->
+                <div class="saved-progress-section" id="savedProgressSection" style="display: none;">
+                    <h2>📚 Your Reading History</h2>
+                    <div id="savedProgressList" class="saved-progress-list">
+                        <!-- Saved progress items will appear here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Readify. By Sathu mani.</p>
+        </div>
+    </footer>
+
+    <script src="js/books-data.js"></script>
+    <script src="js/tracker.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

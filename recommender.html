@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommender - Readify</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">📚 Readify</a>
+                
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="explorer.html">Book Explorer</a></li>
+                    <li><a href="tracker.html">Reading Tracker</a></li>
+                    <li><a href="recommender.html" class="active">Recommender</a></li>
+                    <li><a href="flow.html">Reading Flow</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>🎲 Random Book Recommender</h1>
+                <p>Not sure what to read next? Let us surprise you!</p>
+            </div>
+        </section>
+
+        <!-- Recommender Section -->
+        <section class="recommender-section">
+            <div class="container">
+                <div class="recommender-container">
+                    
+                    <!-- Filter Controls -->
+                    <div class="recommender-controls">
+                        <h2>🎯 Tell us your preferences</h2>
+                        
+                        <div class="filter-group">
+                            <label for="genreSelect">📚 Genre</label>
+                            <select id="genreSelect" class="filter-select">
+                                <option value="">Any Genre</option>
+                                <option value="fiction">Fiction</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="historical">Historical</option>
+                                <option value="dystopian">Dystopian</option>
+                                <option value="romance">Romance</option>
+                                <option value="sci-fi">Sci-Fi</option>
+                                <option value="adventure">Adventure</option>
+                                <option value="magical-realism">Magical Realism</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="lengthSelect">📏 Book Length</label>
+                            <select id="lengthSelect" class="filter-select">
+                                <option value="">Any Length</option>
+                                <option value="short">Short (< 250 pages)</option>
+                                <option value="medium">Medium (250-400 pages)</option>
+                                <option value="long">Long (400+ pages)</option>
+                            </select>
+                        </div>
+
+                        <button id="recommendBtn" class="recommend-btn">
+                            🎲 Get Random Book
+                        </button>
+                    </div>
+
+                    <!-- Recommendation Display -->
+                    <div id="recommendationDisplay" class="recommendation-display" style="display: none;">
+                        <div class="recommendation-card">
+                            <div class="card-header">
+                                <h2>📖 We Recommend:</h2>
+                            </div>
+
+                            <div class="book-recommendation">
+                                <div class="book-cover-large">
+                                    <div id="recBookCover" class="book-cover-placeholder">📚</div>
+                                </div>
+
+                                <div class="book-details-rec">
+                                    <h3 id="recTitle">Book Title</h3>
+                                    <p class="rec-author">by <span id="recAuthor">Author Name</span></p>
+
+                                    <div class="rec-meta">
+                                        <span class="meta-badge">📚 <span id="recGenre">Genre</span></span>
+                                        <span class="meta-badge">📄 <span id="recPages">Pages</span> pages</span>
+                                        <span class="meta-badge">⭐ <span id="recRating">Rating</span></span>
+                                    </div>
+
+                                    <div class="rec-synopsis">
+                                        <h4>Synopsis</h4>
+                                        <p id="recSynopsis">Book synopsis goes here...</p>
+                                    </div>
+
+                                    <div class="rec-actions">
+                                        <button id="pickAgainBtn" class="btn-pick-again">
+                                            🔄 Pick Again
+                                        </button>
+                                        <button id="addToListBtn" class="btn-add-to-list">
+                                            ➕ Add to Reading List
+                                        </button>
+                                    </div>
+
+                                    <div id="recMessage" class="rec-message"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Reading List -->
+                <div class="reading-list-section" id="readingListSection" style="display: none;">
+                    <h2>📚 Your Personal Reading List</h2>
+                    <p class="list-subtitle">Books you've saved from recommendations</p>
+                    
+                    <div id="readingListGrid" class="reading-list-grid">
+                        <!-- Reading list items will appear here -->
+                    </div>
+
+                    <button id="clearListBtn" class="btn-clear-list">Clear All</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Readify. By Sathu Mani.</p>
+        </div>
+    </footer>
+
+    <script src="js/books-data.js"></script>
+    <script src="js/recommender.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
