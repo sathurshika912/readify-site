@@ -1,7 +1,7 @@
 console.log("✅ Readify JavaScript loaded!");
 
 // ============================================
-// ROTATING QUOTES
+// ROTATING QUOTES (Home page only)
 // ============================================
 const quotes = [
     { text: "A reader lives a thousand lives before he dies.", author: "George R.R. Martin" },
@@ -18,66 +18,28 @@ function rotateQuote() {
     const authorElement = document.querySelector('.quote-author');
     
     if (quoteElement && authorElement) {
-        // Fade out
         quoteElement.style.opacity = '0';
         authorElement.style.opacity = '0';
         
         setTimeout(() => {
-            // Change quote
             currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
             quoteElement.textContent = `"${quotes[currentQuoteIndex].text}"`;
             authorElement.textContent = `- ${quotes[currentQuoteIndex].author}`;
             
-            // Fade in
             quoteElement.style.opacity = '1';
             authorElement.style.opacity = '1';
         }, 500);
     }
 }
 
-// Add transition to quote elements
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM loaded - setting up hamburger menu");
+    const quoteElement = document.querySelector('.quote-text');
+    const authorElement = document.querySelector('.quote-author');
     
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    
-    console.log("Hamburger:", hamburger);
-    console.log("Nav Menu:", navMenu);
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            console.log("Hamburger clicked!");
-            
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-            
-            console.log("Menu active:", navMenu.classList.contains('active'));
-        });
-        
-        // Close menu when clicking on a link
-        const navLinks = navMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
-        });
-        
-        console.log("✅ Hamburger menu initialized");
-    } else {
-        console.error("❌ Hamburger or NavMenu not found!");
+    if (quoteElement && authorElement) {
+        quoteElement.style.transition = 'opacity 0.5s';
+        authorElement.style.transition = 'opacity 0.5s';
+        setInterval(rotateQuote, 5000);
     }
 });
 
@@ -86,44 +48,53 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================
 const authors = [
     {
-        name: "Jane Austen",
-        bio: "English novelist known for her six major novels, including Pride and Prejudice and Sense and Sensibility, which critique the British landed gentry at the end of the 18th century."
+        name: "Kalki Krishnamurthy",
+        bio: "Renowned Tamil writer and freedom fighter, best known for historical novels Ponniyin Selvan and Sivagamiyin Sabadham."
     },
     {
-        name: "Mark Twain",
-        bio: "American writer, humorist, and entrepreneur famous for The Adventures of Tom Sawyer and Adventures of Huckleberry Finn, often called the 'Great American Novel'."
+        name: "Jayakanthan",
+        bio: "Jnanpith Award-winning Tamil writer exploring human psychology and social issues."
+    },
+    {
+        name: "Sujatha",
+        bio: "Prolific Tamil author who wrote over 100 novels, bridging Tamil literature with technology."
+    },
+    {
+        name: "Perumal Murugan",
+        bio: "Contemporary Tamil writer known for powerful novels exploring rural Tamil Nadu life."
+    },
+    {
+        name: "Sivasankari",
+        bio: "Acclaimed Tamil novelist and Padma Shri awardee known for strong female characters."
+    },
+    {
+        name: "Jane Austen",
+        bio: "English novelist known for Pride and Prejudice and other classics critiquing British society."
     },
     {
         name: "J.K. Rowling",
-        bio: "British author best known for the Harry Potter series, which has won multiple awards and sold more than 500 million copies, becoming the best-selling book series in history."
+        bio: "British author of the Harry Potter series, the best-selling book series in history."
     },
     {
         name: "Stephen King",
-        bio: "American author of horror, supernatural fiction, suspense, crime, and fantasy novels. His books have sold more than 350 million copies worldwide."
-    },
-    {
-        name: "Agatha Christie",
-        bio: "English writer known for her detective novels, particularly those featuring Hercule Poirot and Miss Marple. Her novels have sold over 2 billion copies worldwide."
-    },
-    {
-        name: "Ernest Hemingway",
-        bio: "American novelist and short-story writer whose economical and understated style had a strong influence on 20th-century fiction. Nobel Prize winner in Literature."
+        bio: "American author of horror and suspense with over 350 million books sold worldwide."
     },
     {
         name: "George Orwell",
-        bio: "English novelist, essayist, and critic famous for his works including Nineteen Eighty-Four and Animal Farm, which have become classics of dystopian literature."
+        bio: "English novelist famous for Nineteen Eighty-Four and Animal Farm."
+    },
+    {
+        name: "J.R.R. Tolkien",
+        bio: "English writer and creator of Middle-earth, author of The Hobbit and The Lord of the Rings."
     }
 ];
 
 function getAuthorOfDay() {
     const today = new Date();
-    // Calculate day of year
     const start = new Date(today.getFullYear(), 0, 0);
     const diff = today - start;
     const oneDay = 1000 * 60 * 60 * 24;
     const dayOfYear = Math.floor(diff / oneDay);
-    
-    // Use day of year to select author
     const authorIndex = dayOfYear % authors.length;
     return authors[authorIndex];
 }
@@ -139,23 +110,7 @@ function displayAuthorOfDay() {
     }
 }
 
-// Display author when page loads
 document.addEventListener('DOMContentLoaded', displayAuthorOfDay);
-
-// ============================================
-// HAMBURGER MENU
-// ============================================
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-    }
-});
 
 // ============================================
 // NEWSLETTER FORM
@@ -171,17 +126,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const message = document.getElementById('newsletterMessage');
             const email = emailInput.value;
             
-            // Save to localStorage
             localStorage.setItem('newsletterEmail', email);
             
-            // Show confirmation
             message.textContent = '✅ Thank you for subscribing!';
             message.style.color = '#2ecc71';
             
-            // Clear form
             emailInput.value = '';
             
-            // Hide message after 3 seconds
             setTimeout(() => {
                 message.textContent = '';
             }, 3000);

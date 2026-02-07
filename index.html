@@ -9,31 +9,29 @@
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <a href="index.html" class="logo">📚 Readify</a>
-                
-                <!-- Hamburger Menu -->
-                <button class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                
-                <!-- Navigation Links -->
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="explorer.html">Book Explorer</a></li>
-                    <li><a href="tracker.html">Reading Tracker</a></li>
-                    <li><a href="recommender.html">Recommender</a></li>
-                    <li><a href="flow.html">Reading Flow</a></li>
-                    <li><a href="feedback.html">Feedback</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+   <!-- Navigation Bar -->
+<header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">📚 Readify</a>
+            
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explorer.html">Book Explorer</a></li>
+                <li><a href="tracker.html">Reading Tracker</a></li>
+                <li><a href="recommender.html">Recommender</a></li>
+                <li><a href="flow.html">Reading Flow</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
     <!-- Main Content -->
     <main>
@@ -134,6 +132,10 @@
         </div>
     </footer>
 
+
+    <script src="js/books-data.js"></script>
+    <script src="js/navigation.js"></script>  <!-- ← NEW FILE -->
+    <script src="js/explorer.js"></script>
     <script src="js/main.js"></script>
     
 </body>
